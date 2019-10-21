@@ -1,0 +1,112 @@
+
+<div class="container">
+    <div class="row">
+        
+        <div class="col-md-6">
+          <mat-card-title>
+              Expediteur
+        </mat-card-title>
+        <mat-card-content>
+            <form #form="ngForm" (submit)="envoi(form)" autocomplete="off">
+                <table>
+                    <tr>
+                        <td>
+                            <mat-form-field class="demo-full-width">    
+                                <input matInput placeholder="prenom de l'expéditeur" name="prenomE" #prenomE="ngModel" [class.is-invalid]="prenomE.invalid" [(ngModel)]="EnvoiData.prenomE" class="formControlName" required>   
+                                <div class="validation-error text-danger" *ngIf="prenomE.invalid && prenomE.touched">Le prenom de l'expéditeur  SVP.</div>
+                              </mat-form-field> 
+                        </td>
+             
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <mat-form-field class="demo-full-width">
+                                <input matInput type="text"placeholder="nom Expediteur" name="nomE" #nomE="ngModel" [(ngModel)]="EnvoiData.nomE" class="formControlName"  required>
+                                <div class="validation-error text-danger" *ngIf="nomE.invalid && nomE.touched">Le nom de l'expéditeur  SVP.</div>
+                              </mat-form-field>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td colspan="2">
+                            <mat-form-field class="demo-full-width">
+                                <input  matInput placeholder="telephone Expediteur" name="tel" #telephoneE="ngModel" [(ngModel)]="EnvoiData.telephoneE" class="formControlName" pattern="^\d{9}$"  required>
+                                <div class="validation-error text-danger" *ngIf="telephoneE.invalid && telephoneE.touched">je veux savoir votre telephone.</div>
+                              </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <mat-form-field class="demo-full-width">
+                                <input matInput placeholder="Montant" name="montantTransaction" #montantTransaction="ngModel" [(ngModel)]="EnvoiData.montantTransaction" class="formControlName" (keyup)="frais($event)" required>
+                                <div class="validation-error text-danger" *ngIf="montantTransaction.invalid && montantTransaction.touched">je veux savoir le montant .</div>
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+    
+        </mat-card-content>
+        </div>
+        <div class="col*md-6">
+          <mat-card-title>
+              Beneficiaire
+        </mat-card-title>
+        <mat-card-content>
+            <form #form="ngForm" (submit)="envoi(form)" autocomplete="off">
+                <table>
+                    <tr>
+                        <td>
+                            <mat-form-field class="demo-full-width">
+                                <input matInput placeholder="nom Beneficiaire" name="nomb" #nomb="ngModel" [(ngModel)]="EnvoiData.nomb" class="formControlName" required>
+                                <div class="validation-error text-danger" *ngIf="nomb.invalid && nomb.touched">je veux savoir le nom.</div>
+                              </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <mat-form-field class="demo-full-width">
+                                <input matInput type="text" placeholder="Prenom Beneficiaire" name="prenomb" #prenomb="ngModel" [(ngModel)]="EnvoiData.prenomb" class="formControlName" required>
+                                <div class="validation-error text-danger" *ngIf="prenomb.invalid && prenomb.touched">je veux savoir le prenom.</div>
+                              </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <mat-form-field class="demo-full-width">
+                                <input matInput name="telephoneb" placeholder="telephone Beneficiaire" #telephoneb="ngModel" [(ngModel)]="EnvoiData.telephoneb" class="formControlName" required>
+                                <div class="validation-error text-danger" *ngIf="telephoneb.invalid && telephoneb.touched">le numero doit etre 9 chiffre.</div>
+                            </mat-form-field>
+                        </td>
+                    </tr>
+    
+                 
+                    <tr>
+             
+                        <td colspan="3">
+                            <mat-form-field class="demo-full-width">
+                                <input matInput name="libTransaction" placeholder="motif" #libTransaction="ngModel" [(ngModel)]="EnvoiData.libTransaction" class="formControlName" required>
+                                <div class="validation-error text-danger" *ngIf="libTransaction.invalid && libTransaction.touched">champs requis.</div>
+                            </mat-form-field>   
+                        </td>
+                    </tr>
+                    <tr>
+             
+                            <td colspan="3">
+                                    <div *ngIf="tarif">frais {{tarif.frais}} fcfa</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td colspan="2" class="content-center">
+                        </td>
+                    </tr>
+    
+                </table>
+                <button style="margin-left: 250px" type="submit" [disabled]="form.invalid" class="btn btn-success ">envoyer</button>
+
+            </form>
+
+        </mat-card-content>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,148 @@
+<!-- profile -->
+<div id="profile" class="tab-pane">
+    <section class="panel">
+        <div class="panel-body bio-graph-info">
+            <h1>code D'envoi</h1>
+            <div class="panel-body">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label class="sr-only" for="exampleInputEmail2">Code</label>
+                        <input type="number" class="form-control" placeholder="Enter le code" [(ngModel)]="valide.codeSecret" name="codeSecret">
+                        <button class="btn btn-warning btn-lg" (click)="verifier(valide.value)">verifier</button>
+                    </div>
+                </form>
+
+            </div>
+
+            <div class="row" *ngIf="code">
+
+                <div class="bio-row">
+                    <p>
+                        <Strong>nom expediteur</Strong>:<em>
+                            {{code.expediteur.nomE}}
+                        </em>
+                    </p>
+                </div>
+                <div class="bio-row">
+                    <p>
+                        <Strong>prenom  expediteur</Strong>:<em>
+                            {{code.expediteur.prenomE}}
+                        </em>
+                    </p>
+                </div>
+                <div class="bio-row">
+                    <p>
+                        <Strong>telephone expediteur
+                        </Strong>:<em>
+                            {{code.expediteur.telephoneE}}
+                        </em>
+                    </p>
+                </div>
+                <div class="bio-row">
+                    <p>
+                        <Strong>nom beneficiaire</Strong>:<em>
+                            {{code.beneficiaire.nomb}}
+                        </em>
+                    </p>
+                </div>
+                <div class="bio-row">
+                    <p>
+                        <Strong>prenom beneficiaire
+                        </Strong>:
+                        <em>
+                            {{code.beneficiaire.prenomb}}
+                        </em>
+                    </p>
+                </div>
+                <div class="bio-row">
+                    <p>
+                        <Strong>telephone beneficiaire
+                        </Strong>:
+                        <em>
+                            {{code.beneficiaire.telephoneb}}
+                        </em>
+                    </p>
+                </div>
+                <div class="bio-row">
+                    <p>
+                        <Strong>Montant
+                        </Strong>:
+                        <em>
+                            {{code.montantTransaction}}
+                            FCFA
+                        </em>
+                    </p>
+                </div>
+                <div class="bio-row">
+                    <p>
+                        <Strong>date envoi
+                        </Strong>:
+                        <em>
+                            {{code.dateEnvoi}}
+                        </em>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section></section>
+</div>
+<form class="form-inline" *ngIf="code">
+    <div class="bio-row">
+        <label class="" for="exampleInputEmail2">numero CNI</label>
+        <p></p>
+        <input type="number" class="form-control" placeholder="Enter le numero de CNI" [(ngModel)]="valide.cni" name="cni">
+        <button class="btn btn-success btn-lg" title="Bootstrap 3 themes generator" (click)="retrait()">Valider</button>
+    </div>
+</form>
+
+
+<fieldset id="contrat" *ngIf="code" hidden>
+    <legend>fatfat TRANSFERT</legend>
+    <h3 class="text-center titre">Reçu de retrait</h3>
+    <div class="row">
+        <p class="col-sm-3" *ngFor="let info of info">
+            <strong >Entreprise : </strong>
+            {{info.partenaire.raisonSocial}}
+        </p>
+        <p class="col-sm-3" *ngFor="let info of info">
+            <strong >Adresse :</strong>
+            {{info.partenaire.adresse}}
+        </p>
+        <p class="col-sm-3">
+            <strong>Date :</strong>
+            {{laDate}}</p>
+    </div>
+    <fieldset>
+        <legend>Bénéficiaire</legend>
+        <p>Nom :
+            {{code.beneficiaire.nomb}}</p>
+        <p>Pays :
+            {{code.beneficiaire.prenomb}}</p>
+        <p>Téléphone :
+            {{code.beneficiaire.telephoneb}}</p>
+        <p>NCI :
+            {{code.cni}}</p>
+    </fieldset>
+    <fieldset>
+        <legend>expediteur</legend>
+        <p>Nom :
+            {{code.expediteur.nomE}}</p>
+        <p>prenom :
+            {{code.expediteur.prenomE}}</p>
+        <p>Téléphone :
+            {{code.expediteur.telephoneE}}</p>
+    </fieldset>
+    <fieldset>
+        <legend>Transaction</legend>
+        <p>Code :{{code.codeSecret}}</p>
+        <p>Montant retiré :
+            {{code.montantTransaction}}</p>
+        <p>
+            date envoi{{code.dateEnvoi}}</p>
+    </fieldset>
+    <label>caissier</label>
+    <label style="float:right">client</label><br>
+
+</fieldset>
+

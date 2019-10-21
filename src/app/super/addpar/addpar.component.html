@@ -1,0 +1,161 @@
+
+ 
+
+ 
+<div class="container">
+    <div class="row">
+        
+        <div class="col-md-6">
+          <mat-card-title>
+              Entreprise
+        </mat-card-title>
+        <mat-card-content>
+            <form #form="ngForm" (submit)="addPar(form)" autocomplete="off" class="example-form">
+                <table>
+                    <tr>
+                        <td colspan="2">
+                            <mat-form-field class="demo-full-width">
+                                <label>raison Sociale</label>
+
+                                <input matInput placeholder="raison Sociale" name="raisonSocial" #raisonSocial="ngModel" [class.is-invalid]="raisonSocial.invalid" [(ngModel)]="addparData.raisonSocial" class="form-control" required>
+                                <div class="validation-error text-danger" *ngIf="raisonSocial.invalid && raisonSocial.touched">Ta raison Sociale ne doit pas etre vide</div>                             
+                              </mat-form-field>
+                        </td>
+                    </tr>
+            
+                    <tr>
+                        <td colspan="2">
+                            <mat-form-field class="demo-full-width">
+                                <label>NINEA</label>
+                                <input matInput placeholder="ninea" type="number" name="ninea" #ninea="ngModel" [(ngModel)]="addparData.ninea" class="form-control" pattern="^\d{12}$" required>
+                                <div class="validation-error text-danger" *ngIf="ninea.invalid && ninea.touched">Le numero de NINEA SVP.</div>
+                              </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <mat-form-field class="demo-full-width">
+                                <label>adresse</label>
+                                <input matInput placeholder="adresse" name="adresse" #adresse="ngModel" [(ngModel)]="addparData.adresse" class="form-control" required>
+                              <div class="validation-error text-danger" *ngIf="adresse.invalid && adresse.touched">je veux savoir  l'adresse mél de votre entreprise.</div>
+                              </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <mat-form-field class="demo-full-width">
+                                <label>telephone entreprise</label>
+
+                                <input matInput placeholder="telephone entreprise" type="tel" name="fix" #fix="ngModel" [(ngModel)]="addparData.fix" class="form-control" pattern="^\d{9}$" required>
+                                <div class="validation-error text-danger" *ngIf="fix.invalid && fix.touched">Renseigner numero  il doit etre 9 chiffres.</div>
+                              </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <mat-form-field class="demo-full-width">
+                                <label>mail</label>
+                                <input matInput placeholder="mail" name="mail" #mail="ngModel" [(ngModel)]="addparData.mail" class="form-control" required>
+                                <div class="validation-error text-danger" *ngIf="mail.invalid && mail.touched">je veux savoir votre adresse.</div>
+                             </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <mat-form-field class="demo-full-width">
+                                <label>Description</label>
+                                <textarea matInput placeholder="Description" name="Description" #Description="ngModel" [(ngModel)]="addparData.Description" class="form-control" required></textarea>
+                                <div class="validation-error text-danger" *ngIf="Description.invalid && Description.touched">mettez une Description de votre Entreprise.</div>
+                      </mat-form-field>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            
+        </mat-card-content>
+        </div>
+        <div class="col-md-6">
+          <mat-card-title>
+              responsable
+        </mat-card-title>
+        <mat-card-content>
+            <form #form="ngForm" (submit)="addPar(form)" autocomplete="off" >
+                <table>
+                    <tr>
+                        <td>
+                            <mat-form-field class="demo-full-width">
+                              <label>nom</label>
+                                <input matInput placeholder="nom" name="nom" #nom="ngModel" [(ngModel)]="addparData.nom" class="form-control" required>
+                                <div class="validation-error text-danger" *ngIf="nom.invalid && nom.touched">je veux savoir votre nom.</div>
+                        </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <mat-form-field class="demo-full-width">
+                                <label>prenom</label> 
+                              <input matInput placeholder="prenom" name="prenom" #prenom="ngModel" [(ngModel)]="addparData.prenom" class="form-control" required>
+                                <div class="validation-error text-danger" *ngIf="prenom.invalid && prenom.touched">je veux savoir votre prenom aussi.</div>
+                          </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <mat-form-field class="demo-full-width">
+                                <label>login</label>
+                                <input matInput placeholder="login" name="username" #username="ngModel" [(ngModel)]="addparData.username" class="form-control" required>
+                                <div class="validation-error text-danger" *ngIf="username.invalid && username.touched">Creer un Login.</div>
+                         </mat-form-field>
+                        </td>
+                    </tr>
+    
+                 
+                    <tr>
+                        <td colspan="2">
+                            <mat-form-field class="demo-full-width">
+                                <label>password</label>
+                                <input matInput placeholder="password" name="password" #password="ngModel" [(ngModel)]="addparData.password" class="form-control" required>
+                                <div class="validation-error text-danger" *ngIf="password.invalid && password.touched">Creer un password.</div>
+                           </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <mat-form-field class="demo-full-width">
+                                <label>telephone</label>
+                                <input matInput placeholder="telephone" name="telephone" #telephone="ngModel" [(ngModel)]="addparData.telephone" class="form-control" pattern="^\d{9}$" required>
+                                <div class="validation-error text-danger" *ngIf="telephone.invalid && telephone.touched">Renseigner numero  il doit etre 9 chiffres.</div>
+                         </mat-form-field>
+                        </td>
+                    </tr>                 
+
+
+                    <tr>
+                        <td colspan="2">
+                            <mat-form-field class="demo-full-width">
+                                <img hidden src="imageUrl"   style="width:200px;height:100px" />
+
+                                <input type="file"   class="col-lg-4 control-label" #Image accept="image/*" (change)="handleFileInput($event.target.files)" class="form-control"  name="imageName" required>
+                                <div class="validation-error text-danger" *ngIf="Image.invalid && Image.touched">Choisir une Image.</div>
+                     </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="content-center">
+                        </td>
+                    </tr>
+    
+                </table>
+                <button style="margin-left: -130px" [disabled]="form.invalid" class="btn btn-success">Enregistrer</button>
+            </form>
+
+        </mat-card-content>
+        </div>
+    </div>
+</div>
+
+<div class="alert alert-danger" *ngIf="errorMsg">
+    {{errorMsg}}
+  </div>
+ 
+      
